@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "drivelist": "^6.4.0",
     "drivelist-scanner": "^1.0.0",
     "express": "^4.16.3",
     "systeminformation": "^3.42.9"

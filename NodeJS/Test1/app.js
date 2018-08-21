@@ -8,6 +8,8 @@ var ds = require('drivelist-scanner');
 const si = require('systeminformation');
 const os = require('os');
 
+const drivelist = require('drivelist');
+
 app.get('/', function(req, res){
     res.send('Hello Word!...');
 });
@@ -78,10 +80,26 @@ function getSystemInfo(){
         console.log('    directory:      ' + (stats["mode"] & 0040000 ? 'd' : '-'));
     });*/
 
-    get_win_drives(function(data){ console.log('Success...'); console.log(data);},
-                    function(){console.log('Error...');});
+    /*get_win_drives(function(data){ 
+                        console.log('Success...'); 
+                        console.log(data);
 
+                        var stat = fs.statSync("" + data[0] + "/");
 
+                        console.log(stat);
+                    },
+                    function(){
+                        console.log('Error...');
+                    });*/
+
+    drivelist.list((error, drives) => {
+                    if (error) {
+                        throw error;
+                    }
+                       
+                    console.log(drives);
+                });
+                      
     var path = 'C:/';
 
     fs.readdir(path, function(err, stats) {
