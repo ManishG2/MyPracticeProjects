@@ -78,11 +78,11 @@ function getSystemInfo(){
         console.log('    directory:      ' + (stats["mode"] & 0040000 ? 'd' : '-'));
     });*/
 
-    /*get_win_drives(function(data){ console.log('Success...'); console.log(data);},
-                    function(){console.log('Error...');});*/
+    get_win_drives(function(data){ console.log('Success...'); console.log(data);},
+                    function(){console.log('Error...');});
 
 
-    var path = 'C:';
+    var path = 'C:/';
 
     fs.readdir(path, function(err, stats) {
         console.log(stats);
